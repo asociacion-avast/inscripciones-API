@@ -33,7 +33,7 @@ class Actividad(db.Model):
         return value
 
     @hybrid_property
-    def es_valida(self):
+    def is_valid(self):
         return (
             self.hora_fin > self.hora_inicio and
             self.año_maximo > self.año_minimo and
@@ -42,10 +42,9 @@ class Actividad(db.Model):
         )
 
     def validate(self):
-        if not self.es_valida:
+        if not self.is_valid:
             raise ValueError("Actividad is not valid")
 
-# Event listeners for before insert and before update
 @event.listens_for(Actividad, 'before_insert')
 @event.listens_for(Actividad, 'before_update')
 def receive_before_insert_update(mapper, connection, target):

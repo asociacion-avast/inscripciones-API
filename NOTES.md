@@ -6,3 +6,5 @@ https://api.playoffinformatica.com/
 
 https://academy.playoffinformatica.com/article/294-socio-asignar-subcategoria-api
 
+
+@pytest.mark.run_this

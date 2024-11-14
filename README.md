@@ -20,9 +20,16 @@ flask run --debugger --debug --reload --host=0.0.0.0
 
 ### Operaciones con la base de datos
 
+flask db --help
+
 flask db init
 flask db migrate -m "Crear tabla Actividades"
-flask db upgrade
+
+Migraciones:
+- flask db upgrade
+- flask db downgrade
+- flask db downgrade base
+- flask db downgrade <revision>
 
 ### Ejecutar pruebas
 
@@ -37,3 +44,6 @@ Luego, ejecutar las pruebas con pytest:
 pytest
 ```
 
+
+@pytest.mark.run_this
+pytest tests -k run_this
