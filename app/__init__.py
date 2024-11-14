@@ -3,6 +3,7 @@ import logging
 import uuid
 from flask import Flask,g, request
 from flask_caching import Cache
+from flask_caching.backends import SimpleCache
 from dotenv import load_dotenv
 
 from .db import db, get_connection_string
@@ -69,7 +70,8 @@ def create_app():
     # Validations before running the app go here
 
     # Must be done after setting up the configuration
-    cache = Cache(app)
+    # cache = Cache(app)
+    cache = SimpleCache(app)
 
     db.init_app(app)
     if os.getenv('FLASK_ENV') == 'development':

@@ -18,4 +18,22 @@ flask run --debugger --debug --reload --host=0.0.0.0
 ```
 
 
+### Operaciones con la base de datos
+
 flask db init
+flask db migrate -m "Crear tabla Actividades"
+flask db upgrade
+
+### Ejecutar pruebas
+
+Para ejecutar las pruebas primero debes iniciar el servidor de base de datos. Puedes utilizar el docker-compose que hay incluido por defecto:
+```
+docker-compose up db
+```
+
+Luego, ejecutar las pruebas con pytest:
+
+```bash
+pytest
+```
+
