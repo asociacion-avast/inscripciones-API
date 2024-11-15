@@ -24,10 +24,10 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: inscripciones
     volumes:
       - postgres-data:/var/lib/postgresql/data
-      # - ./postgres-data:/docker-entrypoint-initdb.d/
+      - ./docker-init-db.sh:/docker-entrypoint-initdb.d/init-db.sh  # Custom initialization script
+
 
 volumes:
   postgres-data:

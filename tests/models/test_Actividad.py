@@ -6,8 +6,7 @@ from app import create_app,db
 @pytest.fixture(scope='module')
 def app():
     """Fixture para crear y configurar la aplicación de pruebas."""
-    app = create_app()  # Asegúrate de que tu aplicación Flask esté correctamente configurada.
-    app.config['TESTING'] = True
+    app = create_app('testing')
     yield app
 
 @pytest.fixture(scope='module')
